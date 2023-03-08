@@ -5,7 +5,7 @@ class Pilha
 {
 private:
     int tamanho;
-    tipoItem* estrtura;
+    tipoItem* estrutura;
 
 public:
     Pilha();  // Construct Stack
