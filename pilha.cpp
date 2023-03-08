@@ -1,61 +1,63 @@
 #include <iostream>
-#include "Pilha.h"
+#include "pilha.h"
 
 using namespace std;
 
-Pilha::Pilha()
-{
-    tamanho = 0;
-    estrutura = new tipoItem[maxItens];
-}
-Pilha::~Pilha()
-{
-    delete[] estrutura;
-}
-bool Pilha::estaCheia()
-{
-    return (tamanho == maxItens);
-}
-bool Pilha::estaVazia()
-{
-    return (tamanho == 0);
-}
-void Pilha::inserir(tipoItem item)
-{
-    if (estaCheia())
+    pilha::pilha() //construtora //stack
     {
-        cout << "A pilha está cheia!\n";
-    }
-    else
-    {
-        estrutura[tamanho] = item;
-        tamanho++;
-    }
-}
-tipoItem Pilha::remover()
-{
-    if (estaVazia())
-    {
-        cout << "A pilha esta varia!\n";
-        return 0;
-    }
-    else
-    {
-        estrutura[tamanho - 1];
-        return tamanho--;
-    }
-}
-void Pilha::imprimir()
-{
-    cout << "Pilha: [ ";
-    for (int i = 0; i < tamanho; i++)
-    {
-        cout << estrutura[i] << " ";
+        tamanho = 0;
+        estrutura = new TipoItem[max_itens];
     }
 
-    cout << "]\n";
-}
-int Pilha::tamanho()
-{
-    return tamanho;
-}
+    pilha::~pilha() //destrutora //~stack
+    {
+        delete [] estrutura;
+    }
+
+    bool pilha::estacheia() //verifica se a pilha esta cheia //isfull
+    {
+        return (tamanho == max_itens);
+    }
+
+    bool pilha::estavazia() //verifica se a pilha esta vazia //isempty
+    {
+        return (tamanho == 0);
+    }
+
+    void pilha::inserir(TipoItem item) //push
+    {
+        if (estacheia()){
+            cout << "A pilha esta cheia!\n";
+            cout << "Nao e possivel inserir este elemento!\n";
+            return;
+        
+        } 
+            estrutura[tamanho] = item;
+            tamanho++;
+    }
+
+    TipoItem pilha::remover() //pop
+    {
+        if (estavazia()){
+            cout << "A pilha esta vazia!\n"; //throw
+            cout << "Nao tem elemento para ser removido!\n";
+            return 0;
+        } 
+
+           tamanho--;
+           return estrutura[tamanho];
+    }
+
+    void pilha::imprimir() //print
+    {
+        cout << "Pilha: [ ";
+        for (int i=0 ; i<tamanho ; i++){
+            cout << estrutura[i] << " ";
+        }
+        cout << "]\n";
+    }
+
+    int pilha::qualtamanho() //lenght
+    {
+        return tamanho;
+    }

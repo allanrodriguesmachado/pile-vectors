@@ -1,19 +1,19 @@
-typedef int tipoItem;
-const int maxItens = 100;
+typedef int TipoItem;
+const int max_itens = 100;
 
-class Pilha
-{
-private:
+class pilha{
+    private:
     int tamanho;
-    tipoItem* estrutura;
+    TipoItem* estrutura;
 
-public:
-    Pilha();  // Construct Stack
-    ~Pilha(); // Descruct Stack
-    bool estaCheia(); //Verifica se a pilha está cheia
-    bool estaVazia(); //Verificar se  a pilha está vazia
-    void inserir(tipoItem item); //PUSH
-    tipoItem remover(); //POP
-    void imprimir(); //Print
-    int tamanho(); //Lenght
+    public:
+    pilha(); //construtora //stack
+    ~pilha(); //destrutora //~stack
+    bool estacheia(); //verifica se a pilha esta cheia //isfull
+    bool estavazia(); //verifica se a pilha esta vazia //isempty
+    void inserir(TipoItem item); //push
+    TipoItem remover(); //pop
+    void imprimir(); //print
+    int qualtamanho(); //lenght
+
 };
